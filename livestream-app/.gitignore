@@ -12,5 +12,8 @@ logs/
 videos/*.mp4
 videos/*.mkv
 
+# EXCEPT the current small sample video
+!videos/stream.mp4
+
 # Ignore temporary HLS chunks if generated locally
 www/hls/
