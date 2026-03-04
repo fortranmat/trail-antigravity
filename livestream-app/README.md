@@ -24,14 +24,14 @@ SSH into your VPS, navigate to the project directory, and start the Docker conta
 
 ```bash
 cd /path/to/livestream-app
-docker-compose up -d
+docker compose up -d
 ```
 *(Note: FFmpeg will automatically start looping your `stream.mp4` video directly to the NGINX server without needing OBS studio).*
 
 ### 4. Access the Web App
 Open your web browser and navigate to:
 ```text
-http://<YOUR_VPS_IP>:8080
+http://<YOUR_VPS_IP>:8081
 ```
 It usually takes ~10-15 seconds to buffer the very first HLS stream snippet and start playing automatically on the page.
 
@@ -47,7 +47,7 @@ To push the incoming 24/7 stream directly to YouTube Live to increase global wat
 3. Uncomment it by removing the `#` and replace `YOUR-YOUTUBE-STREAM-KEY` with your actual YouTube live stream key.
 4. Restart the NGINX container to apply the changes:
    ```bash
-   docker-compose restart rtmp-server
+   docker compose restart rtmp-server
    ```
 
 ## Managing the Stream
@@ -55,11 +55,11 @@ To push the incoming 24/7 stream directly to YouTube Live to increase global wat
 **To update the video:**
 If you want to change the playing video, overwrite `/videos/stream.mp4` with a new file and restart just the FFmpeg container:
 ```bash
-docker-compose restart ffmpeg-streamer
+docker compose restart ffmpeg-streamer
 ```
 
 **To stop everything:**
 When you are done testing, you can stop and remove the containers with:
 ```bash
-docker-compose down
+docker compose down
 ```
