@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   rtmp-server:
     image: tiangolo/nginx-rtmp:latest
@@ -18,7 +16,7 @@ services:
       retries: 5
 
   ffmpeg-streamer:
-    image: jrottenberg/ffmpeg:latest-alpine
+    image: linuxserver/ffmpeg:latest
     container_name: livestream-ffmpeg
     depends_on:
       rtmp-server:
