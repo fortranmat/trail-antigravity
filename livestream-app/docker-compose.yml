@@ -10,7 +10,7 @@ services:
       - ./www:/www:ro
     restart: unless-stopped
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:8080/" ]
+      test: [ "CMD-SHELL", "wget -q -O - http://localhost:8080/ || exit 1" ]
       interval: 5s
       timeout: 3s
       retries: 5
