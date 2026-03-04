@@ -1,0 +1,16 @@
+node_modules/
+.env
+
+# MacOS
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Video files (dont push massive video files to git)
+videos/*.mp4
+videos/*.mkv
+
+# Ignore temporary HLS chunks if generated locally
+www/hls/
