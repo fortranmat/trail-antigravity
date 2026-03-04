@@ -1,0 +1,88 @@
+OS:
+NAME="Ubuntu"
+VERSION="24.04.4 LTS (Noble Numbat)"
+KERNEL:
+6.8.0-101-generic
+CPU:
+CPU(s):                                  4
+On-line CPU(s) list:                     0-3
+Model name:                              AMD EPYC Processor (with IBPB)
+BIOS Model name:                         pc-i440fx-9.0  CPU @ 2.0GHz
+Thread(s) per core:                      1
+Core(s) per socket:                      4
+NUMA node0 CPU(s):                       0-3
+RAM:
+               total        used        free      shared  buff/cache   available
+Mem:           7.8Gi       1.8Gi       5.4Gi       193Mi       974Mi       5.9Gi
+Swap:             0B          0B          0B
+DISK:
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           795M  1.9M  793M   1% /run
+/dev/sda1       145G  8.7G  136G   6% /
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+/dev/sda16      881M  117M  703M  15% /boot
+/dev/sda15      105M  6.2M   99M   6% /boot/efi
+tmpfs           795M  100K  795M   1% /run/user/111
+overlay         145G  8.7G  136G   6% /var/lib/docker/rootfs/overlayfs/f2abeb2a6                                                                                                                                                             d808b035c12467b1f84e9ee46c09d5fa4efba40ea35b2eda85f66d5
+overlay         145G  8.7G  136G   6% /var/lib/docker/rootfs/overlayfs/5b35aa912                                                                                                                                                             ef70ee4d1652eaffbae57c1fc5259bb21badc321fba7846d120470e
+overlay         145G  8.7G  136G   6% /var/lib/docker/rootfs/overlayfs/1621f2bbb                                                                                                                                                             7545bbca76143ae9c8b5adb2210143db8bcc5db5ea7939fe2907afb
+overlay         145G  8.7G  136G   6% /var/lib/docker/rootfs/overlayfs/0ea3ece91                                                                                                                                                             f3a56091083ca35db959309c7073dcde1d09c6b2970d17fae4089e9
+overlay         145G  8.7G  136G   6% /var/lib/docker/rootfs/overlayfs/859007cc4                                                                                                                                                             329b401d0bc3ccac69d3f11c0bb2c3d01d0a63468f9544cf37b4bd0
+overlay         145G  8.7G  136G   6% /var/lib/docker/rootfs/overlayfs/5e02c4ceb                                                                                                                                                             523614c56a082abe7b6f4cca4030ab1d8df244c08b85d8fb334e449
+overlay         145G  8.7G  136G   6% /var/lib/docker/rootfs/overlayfs/2cad048d2                                                                                                                                                             35df0e15a260eb45e0cf4bfb32e89d470b57765fb72e5f557dded12
+overlay         145G  8.7G  136G   6% /var/lib/docker/rootfs/overlayfs/7b44764c2                                                                                                                                                             7edfc353400f244ed3c5790a2370f00a43951408212140f082a5a35
+tmpfs           795M   92K  795M   1% /run/user/0
+overlay         145G  8.7G  136G   6% /var/lib/docker/rootfs/overlayfs/2aca6e9cf                                                                                                                                                             c07786bb1a9a8b04354e01cfefb57737e0b86eb331472a5a0560697
+NODE:
+v18.19.1
+FFMPEG:
+MYSQL:
+not installed
+PM2:
+not installed
+PM2 PROCESSES:
+OS:
+NAME="Ubuntu"
+VERSION="24.04.4 LTS (Noble Numbat)"
+KERNEL:
+6.8.0-101-generic
+CPU:
+CPU(s):                                  4
+On-line CPU(s) list:                     0-3
+Model name:                              AMD EPYC Processor (with IBPB)
+BIOS Model name:                         pc-i440fx-9.0  CPU @ 2.0GHz
+Thread(s) per core:                      1
+Core(s) per socket:                      4
+NUMA node0 CPU(s):                       0-3
+RAM:
+               total        used        free      shared  buff/cache   available
+Mem:           7.8Gi       1.8Gi       5.4Gi       193Mi       1.0Gi       5.9Gi
+Swap:             0B          0B          0B
+DISK:
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           795M  1.9M  793M   1% /run
+/dev/sda1       145G  8.7G  136G   6% /
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+/dev/sda16      881M  117M  703M  15% /boot
+/dev/sda15      105M  6.2M   99M   6% /boot/efi
+tmpfs           795M  100K  795M   1% /run/user/111
+overlay         145G  8.7G  136G   6% /var/lib/docker/rootfs/overlayfs/f2abeb2a6                                                                                                                                                             d808b035c12467b1f84e9ee46c09d5fa4efba40ea35b2eda85f66d5
+overlay         145G  8.7G  136G   6% /var/lib/docker/rootfs/overlayfs/5b35aa912                                                                                                                                                             ef70ee4d1652eaffbae57c1fc5259bb21badc321fba7846d120470e
+overlay         145G  8.7G  136G   6% /var/lib/docker/rootfs/overlayfs/1621f2bbb                                                                                                                                                             7545bbca76143ae9c8b5adb2210143db8bcc5db5ea7939fe2907afb
+overlay         145G  8.7G  136G   6% /var/lib/docker/rootfs/overlayfs/0ea3ece91                                                                                                                                                             f3a56091083ca35db959309c7073dcde1d09c6b2970d17fae4089e9
+overlay         145G  8.7G  136G   6% /var/lib/docker/rootfs/overlayfs/859007cc4                                                                                                                                                             329b401d0bc3ccac69d3f11c0bb2c3d01d0a63468f9544cf37b4bd0
+overlay         145G  8.7G  136G   6% /var/lib/docker/rootfs/overlayfs/5e02c4ceb                                                                                                                                                             523614c56a082abe7b6f4cca4030ab1d8df244c08b85d8fb334e449
+overlay         145G  8.7G  136G   6% /var/lib/docker/rootfs/overlayfs/2cad048d2                                                                                                                                                             35df0e15a260eb45e0cf4bfb32e89d470b57765fb72e5f557dded12
+overlay         145G  8.7G  136G   6% /var/lib/docker/rootfs/overlayfs/7b44764c2                                                                                                                                                             7edfc353400f244ed3c5790a2370f00a43951408212140f082a5a35
+tmpfs           795M   92K  795M   1% /run/user/0
+overlay         145G  8.7G  136G   6% /var/lib/docker/rootfs/overlayfs/2aca6e9cf                                                                                                                                                             c07786bb1a9a8b04354e01cfefb57737e0b86eb331472a5a0560697
+NODE:
+v18.19.1
+FFMPEG:
+MYSQL:
+not installed
+PM2:
+not installed
+PM2 PROCESSES:

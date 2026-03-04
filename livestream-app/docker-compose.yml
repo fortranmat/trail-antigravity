@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  rtmp-server:
+    image: tiangolo/nginx-rtmp:latest
+    container_name: livestream-rtmp
+    ports:
+      - "1935:1935" # RTMP Stream ingest
+      - "8080:8080" # HLS Player & Web App
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./www:/www:ro
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/" ]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  ffmpeg-streamer:
+    image: jrottenberg/ffmpeg:latest-alpine
+    container_name: livestream-ffmpeg
+    depends_on:
+      rtmp-server:
+        condition: service_healthy
+    volumes:
+      - ./videos:/videos:ro
+    restart: unless-stopped
+    # Use standard FFmpeg flags for looping a video to an RTMP endpoint
+    command: >
+      -stream_loop -1 -re -i /videos/stream.mp4 -c:v libx264 -preset veryfast -maxrate 3000k -bufsize 6000k -pix_fmt yuv420p -g 60 -c:a aac -b:a 128k -ar 44100 -f flv rtmp://rtmp-server/live/test

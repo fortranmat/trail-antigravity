@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveStream Pro - Mockup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="glass-header">
+            <div class="logo">
+                <span class="pulse-dot"></span>
+                <h1>LiveStream Pro</h1>
+            </div>
+            <nav>
+                <button class="btn btn-primary" onclick="alert('In production, this will push directly to YouTube Live as configured in nginx.conf!')">Push to YouTube</button>
+            </nav>
+        </header>
+        
+        <main class="main-content">
+            <div class="video-container glass-card">
+                <video id="video-player" controls autoplay muted></video>
+                <div class="overlay-ui">
+                    <span class="live-badge">LIVE</span>
+                    <span class="viewer-count">👁 1,204 Viewers</span>
+                </div>
+            </div>
+            
+            <aside class="chat-container glass-card">
+                <div class="chat-header">
+                    <h2>Live Chat</h2>
+                </div>
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message"><span class="user">System:</span> Welcome to the stream! Waiting for video connection...</div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" placeholder="Say something..." disabled>
+                    <button class="btn btn-send" disabled>Send</button>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
