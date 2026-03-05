@@ -15,7 +15,7 @@ Use an FTP client (like WinSCP or FileZilla) to upload this entire `livestream-a
 
 ### 2. Prepare your Media
 1. Place a single image file into the `livestream-app/images/` folder and name it exactly `background.png`.
-2. Place a single audio file into the `livestream-app/audio/` folder and name it exactly `music.mp3`.
+2. Place a single audio file into the `livestream-app/audio/` folder and name it exactly `music.ogg`.
 
 *(The streaming container will automatically loop this image and audio file continuously).*
 
@@ -55,7 +55,7 @@ To push the incoming 24/7 stream directly to YouTube Live to increase global wat
 ## Managing the Stream
 
 **To update the media:**
-If you want to change the playing image or audio, overwrite `/images/background.png` or `/audio/music.mp3` with new files and restart just the FFmpeg container:
+If you want to change the playing image or audio, overwrite `/images/background.png` or `/audio/music.ogg` with new files and restart just the FFmpeg container:
 ```bash
 docker compose restart ffmpeg-streamer
 ```
