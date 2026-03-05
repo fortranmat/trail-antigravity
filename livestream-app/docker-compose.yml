@@ -27,4 +27,4 @@ services:
     restart: unless-stopped
     # Use standard FFmpeg flags for looping an image and audio to an RTMP endpoint
     command: >
-      -stream_loop -1 -re -i /audio/music.mp3 -loop 1 -i /images/background.jpg -c:v libx264 -preset veryfast -maxrate 3000k -bufsize 6000k -pix_fmt yuv420p -g 60 -c:a aac -b:a 128k -ar 44100 -shortest -f flv rtmp://rtmp-server/live/test
+      -stream_loop -1 -re -i /audio/music.mp3 -loop 1 -framerate 2 -re -i /images/background.jpg -c:v libx264 -preset veryfast -maxrate 3000k -bufsize 6000k -pix_fmt yuv420p -g 60 -c:a aac -b:a 128k -ar 44100 -shortest -f flv rtmp://rtmp-server/live/test
