@@ -19,14 +19,16 @@ Use an FTP client (like WinSCP or FileZilla) to upload this entire `livestream-a
 
 *(The streaming container will automatically loop this image and audio file continuously).*
 
-### 3. Start the Server
-SSH into your VPS, navigate to the project directory, and start the Docker containers in the background:
+### 3. Start the Server (via CI/CD)
+This application is connected to the VPS via CI/CD. Whenever you push an update to Git here, the VPS Docker environment will automatically get updated.
+
+If you need to manually restart or forcefully apply changes on the VPS, you can run:
 
 ```bash
 cd /path/to/livestream-app
-docker compose up -d
+docker compose up -d --force-recreate
 ```
-*(Note: FFmpeg will automatically start looping your `stream.mp4` video directly to the NGINX server without needing OBS studio).*
+*(Note: FFmpeg will automatically start looping your image and audio directly to the NGINX server without needing OBS studio).*
 
 ### 4. Access the Web App
 Open your web browser and navigate to:
