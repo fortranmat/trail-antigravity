@@ -17,7 +17,7 @@ Use an FTP client (like WinSCP or FileZilla) to upload this entire `livestream-a
 1. Place your long video file into the `livestream-app/videos/` folder.
 2. Ensure the video file is named exactly `stream.mp4`.
 
-*(A small 10-second sample video has been provided by default for testing).*
+*(A small sample video has been provided by default for testing. This line was updated to test GitHub Actions deployment).*
 
 ### 3. Start the Server
 SSH into your VPS, navigate to the project directory, and start the Docker containers in the background:
