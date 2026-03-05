@@ -13,11 +13,11 @@ This is a functional mockup of the LiveStream Pro application designed for a 24/
 ### 1. Upload the Project
 Use an FTP client (like WinSCP or FileZilla) to upload this entire `livestream-app` folder to your VPS (e.g., to `/root/livestream-app`).
 
-### 2. Prepare your Video
-1. Place your long video file into the `livestream-app/videos/` folder.
-2. Ensure the video file is named exactly `stream.mp4`.
+### 2. Prepare your Media
+1. Place a single image file into the `livestream-app/images/` folder and name it exactly `background.jpg`.
+2. Place a single audio file into the `livestream-app/audio/` folder and name it exactly `music.mp3`.
 
-*(A small sample video has been provided by default for testing. This line was updated to test GitHub Actions deployment).*
+*(The streaming container will automatically loop this image and audio file continuously).*
 
 ### 3. Start the Server
 SSH into your VPS, navigate to the project directory, and start the Docker containers in the background:
@@ -52,8 +52,8 @@ To push the incoming 24/7 stream directly to YouTube Live to increase global wat
 
 ## Managing the Stream
 
-**To update the video:**
-If you want to change the playing video, overwrite `/videos/stream.mp4` with a new file and restart just the FFmpeg container:
+**To update the media:**
+If you want to change the playing image or audio, overwrite `/images/background.jpg` or `/audio/music.mp3` with new files and restart just the FFmpeg container:
 ```bash
 docker compose restart ffmpeg-streamer
 ```
