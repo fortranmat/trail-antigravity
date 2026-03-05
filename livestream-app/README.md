@@ -65,3 +65,22 @@ When you are done testing, you can stop and remove the containers with:
 ```bash
 docker compose down
 ```
+
+## Troubleshooting (No Video Render/HLS Issues)
+If you see the error: `"Could not connect to stream. Please refresh the page later."`, there is likely an issue with FFmpeg or NGINX generating the stream fragments.
+
+**Run these commands on your VPS and check the output:**
+
+1. **Check FFmpeg Logs**: Look for any errors with the image/audio or RTMP connection.
+   ```bash
+   docker compose logs --tail=50 ffmpeg-streamer
+   ```
+2. **Check NGINX RTMP Logs**: Look for any errors regarding HLS fragment generation.
+   ```bash
+   docker compose logs --tail=50 rtmp-server
+   ```
+3. **Check if HLS Files are Generating**: The stream segments (`.ts` and `.m3u8` files) should be actively generated in the NGINX container's `/tmp/hls` directory.
+   ```bash
+   docker exec -it livestream-rtmp ls -la /tmp/hls
+   ```
+   *(If this directory is empty or missing, FFmpeg is failing to send the stream to NGINX!)*
