@@ -44,27 +44,28 @@ services:
       ffmpeg
         -re
         -loop 1
-        -framerate 30
+        -framerate 15
         -i /images/background.png
         -f lavfi
         -i anullsrc=r=44100:cl=stereo
         -c:v libx264
-        -preset veryfast
+        -preset ultrafast
         -tune stillimage
         -profile:v main
-        -b:v 3000k
-        -minrate 3000k
-        -maxrate 3000k
-        -bufsize 3000k
+        -b:v 2000k
+        -minrate 2000k
+        -maxrate 2000k
+        -bufsize 2000k
         -pix_fmt yuv420p
-        -r 30
-        -g 60
-        -keyint_min 60
+        -r 15
+        -g 30
+        -keyint_min 30
         -sc_threshold 0
+        -threads 0
         -vf "pad=1920:1080:(ow-iw)/2:(oh-ih)/2:black,
              drawtext=text='ஸ்ரீ சக்கரம் | Sri Chakram':fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=64:fontcolor=gold:x=(w-text_w)/2:y=80,
-             drawtext=textfile=/config/current_tamil.txt:reload=1:fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=50:fontcolor=gold:x=w-mod(t*100\\,w+tw):y=h-140,
-             drawtext=textfile=/config/current_english.txt:reload=1:fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=40:fontcolor=white:x=w-mod(t*100\\,w+tw+500):y=h-70"
+             drawtext=textfile=/config/current_tamil.txt:reload=150:fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=50:fontcolor=gold:x=w-mod(t*100\\,w+tw):y=h-140,
+             drawtext=textfile=/config/current_english.txt:reload=150:fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=40:fontcolor=white:x=w-mod(t*100\\,w+tw+500):y=h-70"
         -c:a aac
         -b:a 128k
         -ar 44100
