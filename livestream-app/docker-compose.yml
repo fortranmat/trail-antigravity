@@ -61,9 +61,10 @@ services:
         -g 60
         -keyint_min 60
         -sc_threshold 0
-        -vf "drawtext=text='ஸ்ரீ சக்கரம் | Sri Chakram':fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=56:fontcolor=gold:shadowcolor=black:shadowx=3:shadowy=3:x=(w-text_w)/2:y=40,
-             drawtext=textfile=/config/current_tamil.txt:reload=1:fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=48:fontcolor=gold:shadowcolor=black:shadowx=2:shadowy=2:x=w-mod(t*80\\,w+tw):y=h-120,
-             drawtext=textfile=/config/current_english.txt:reload=1:fontfile=/fonts/NotoSans-Regular.ttf:fontsize=36:fontcolor=white:shadowcolor=black:shadowx=2:shadowy=2:x=w-mod(t*80\\,w+tw+200):y=h-65"
+        -vf "pad=1920:1080:(ow-iw)/2:(oh-ih)/2:black,
+             drawtext=text='ஸ்ரீ சக்கரம் | Sri Chakram':fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=64:fontcolor=gold:x=(w-text_w)/2:y=80,
+             drawtext=textfile=/config/current_tamil.txt:reload=1:fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=50:fontcolor=gold:x=w-mod(t*100\\,w+tw):y=h-140,
+             drawtext=textfile=/config/current_english.txt:reload=1:fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=40:fontcolor=white:x=w-mod(t*100\\,w+tw+500):y=h-70"
         -c:a aac
         -b:a 128k
         -ar 44100
