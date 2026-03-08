@@ -15,13 +15,13 @@ services:
       timeout: 3s
       retries: 5
 
-  verse-rotator:
-    image: bash:5
-    container_name: verse_rotator
-    restart: always
-    volumes:
-      - ./config:/config
-    command: ["bash", "/config/verse_rotator.sh"]
+  # verse-rotator:
+  #   image: bash:5
+  #   container_name: verse_rotator
+  #   restart: always
+  #   volumes:
+  #     - ./config:/config
+  #   command: ["bash", "/config/verse_rotator.sh"]
 
   ffmpeg-streamer:
     image: linuxserver/ffmpeg:latest
@@ -32,7 +32,6 @@ services:
         condition: service_healthy
     volumes:
       - ./images:/images:ro
-      - ./config:/config:ro
       - ./fonts:/fonts:ro
       - ./logs:/logs
     environment:
@@ -63,9 +62,9 @@ services:
         -sc_threshold 0
         -threads 0
         -vf "pad=1920:1080:(ow-iw)/2:(oh-ih)/2:black,
-             drawtext=text='ஸ்ரீ சக்கரம் | Sri Chakram':fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=64:fontcolor=gold:x=(w-text_w)/2:y=80,
-             drawtext=textfile=/config/current_tamil.txt:reload=150:fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=50:fontcolor=gold:x=w-mod(t*100\\,w+tw):y=h-140,
-             drawtext=textfile=/config/current_english.txt:reload=150:fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=40:fontcolor=white:x=w-mod(t*100\\,w+tw+500):y=h-70"
+             drawtext=text='ஸ்ரீ சக்கரம் | Sri Chakram':fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=40:fontcolor=gold:shadowcolor=black:shadowx=3:shadowy=3:x=(w-text_w)/2:y=40,
+             drawtext=text='ஐம் ஹ்ரீம் ஸ்ரீம் | க்லீம் | ஹ்ரீம் | ஸ்ரீம் | க ஏ ஈ ல ஹ்ரீம் | ஹ்ஸ்ரைம் | ஹ்ரீம் க்லீம் ஐம்':fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=36:fontcolor=gold:shadowcolor=black:shadowx=2:shadowy=2:x=(w-text_w)/2:y=h-120,
+             drawtext=text='Aim Hrim Srim | Klim | Hrim | Srim | Ka E I La Hrim | Hsraim | Hrim Klim Aim':fontfile=/fonts/NotoSans-Regular.ttf:fontsize=28:fontcolor=white:shadowcolor=black:shadowx=2:shadowy=2:x=(w-text_w)/2:y=h-65"
         -c:a aac
         -b:a 128k
         -ar 44100
