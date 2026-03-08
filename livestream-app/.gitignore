@@ -17,3 +17,9 @@ videos/*.mkv
 
 # Ignore temporary HLS chunks if generated locally
 www/hls/
+
+# Ignore auto-generated text overlay files
+config/current_tamil.txt
+config/current_english.txt
+config/current_tamil.txt.tmp
+config/current_english.txt.tmp
