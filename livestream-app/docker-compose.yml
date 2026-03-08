@@ -15,6 +15,14 @@ services:
       timeout: 3s
       retries: 5
 
+  verse-rotator:
+    image: bash:5
+    container_name: verse_rotator
+    restart: always
+    volumes:
+      - ./config:/config
+    command: ["bash", "/config/verse_rotator.sh"]
+
   ffmpeg-streamer:
     image: linuxserver/ffmpeg:latest
     container_name: livestream-ffmpeg
@@ -24,57 +32,45 @@ services:
         condition: service_healthy
     volumes:
       - ./images:/images:ro
-    command:
-      - "-re"
-      - "-loop"
-      - "1"
-      - "-framerate"
-      - "30"
-      - "-i"
-      - "/images/background.png"
-      - "-f"
-      - "lavfi"
-      - "-i"
-      - "anullsrc=r=44100:cl=stereo"
-      - "-c:v"
-      - "libx264"
-      - "-preset"
-      - "veryfast"
-      - "-tune"
-      - "stillimage"
-      - "-profile:v"
-      - "main"
-      - "-b:v"
-      - "3000k"
-      - "-minrate"
-      - "3000k"
-      - "-maxrate"
-      - "3000k"
-      - "-bufsize"
-      - "3000k"
-      - "-pix_fmt"
-      - "yuv420p"
-      - "-g"
-      - "60"
-      - "-keyint_min"
-      - "60"
-      - "-sc_threshold"
-      - "0"
-      - "-r"
-      - "30"
-      - "-c:a"
-      - "aac"
-      - "-b:a"
-      - "128k"
-      - "-ar"
-      - "44100"
-      - "-map"
-      - "0:v"
-      - "-map"
-      - "1:a"
-      - "-f"
-      - "tee"
-      - "[f=flv]rtmp://rtmp-server/live/test|[f=flv:onfail=ignore]rtmp://a.rtmp.youtube.com/live2/fzcp-swfh-z7zr-w4zm-6p2f"
+      - ./config:/config:ro
+      - ./fonts:/fonts:ro
+      - ./logs:/logs
+    environment:
+      - STREAM_KEY=fzcp-swfh-z7zr-w4zm-6p2f
+      - LOCAL_RTMP=rtmp://rtmp-server/live/test
+    cpus: '2.0'
+    mem_limit: 1g
+    entrypoint: >
+      ffmpeg
+        -re
+        -loop 1
+        -framerate 30
+        -i /images/background.png
+        -f lavfi
+        -i anullsrc=r=44100:cl=stereo
+        -c:v libx264
+        -preset veryfast
+        -tune stillimage
+        -profile:v main
+        -b:v 3000k
+        -minrate 3000k
+        -maxrate 3000k
+        -bufsize 3000k
+        -pix_fmt yuv420p
+        -r 30
+        -g 60
+        -keyint_min 60
+        -sc_threshold 0
+        -vf "drawtext=text='ஸ்ரீ சக்கரம் | Sri Chakram':fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=56:fontcolor=gold:shadowcolor=black:shadowx=3:shadowy=3:x=(w-text_w)/2:y=40,
+             drawtext=textfile=/config/current_tamil.txt:reload=1:fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=48:fontcolor=gold:shadowcolor=black:shadowx=2:shadowy=2:x=w-mod(t*80\\,w+tw):y=h-120,
+             drawtext=textfile=/config/current_english.txt:reload=1:fontfile=/fonts/NotoSans-Regular.ttf:fontsize=36:fontcolor=white:shadowcolor=black:shadowx=2:shadowy=2:x=w-mod(t*80\\,w+tw+200):y=h-65"
+        -c:a aac
+        -b:a 128k
+        -ar 44100
+        -map 0:v
+        -map 1:a
+        -f tee
+        "[f=flv]rtmp://rtmp-server/live/test|[f=flv:onfail=ignore]rtmp://a.rtmp.youtube.com/live2/fzcp-swfh-z7zr-w4zm-6p2f"
 
 
 
