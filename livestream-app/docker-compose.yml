@@ -18,19 +18,37 @@ services:
   ffmpeg-streamer:
     image: linuxserver/ffmpeg:latest
     container_name: livestream-ffmpeg
-    env_file:
-      - .env
+    restart: unless-stopped
     depends_on:
       rtmp-server:
         condition: service_healthy
     volumes:
       - ./images:/images:ro
-      - ./audio:/audio:ro
-    restart: unless-stopped
-    # Use standard FFmpeg flags for looping an image and audio to multiple RTMP endpoints
-    # This pushes to BOTH the local mockup player and YouTube Live
-    command: >
-      -re -loop 1 -framerate $FRAMERATE -i /images/$IMAGE_FILE 
-      -c:v libx264 -preset veryfast -b:v $VIDEO_BITRATE -maxrate $VIDEO_BITRATE -bufsize 6000k -pix_fmt yuv420p -g 60 
-      -f flv rtmp://rtmp-server/live/$STREAM_NAME
-      -f hls -method POST -hls_time 1 -hls_list_size 3 -hls_segment_type mpegts $YOUTUBE_URL
+    command:
+      - "-re"
+      - "-loop"
+      - "1"
+      - "-framerate"
+      - "30"
+      - "-i"
+      - "/images/background.png"
+      - "-c:v"
+      - "libx264"
+      - "-preset"
+      - "veryfast"
+      - "-b:v"
+      - "3000k"
+      - "-maxrate"
+      - "3000k"
+      - "-bufsize"
+      - "6000k"
+      - "-pix_fmt"
+      - "yuv420p"
+      - "-g"
+      - "60"
+      - "-f"
+      - "flv"
+      - "rtmp://rtmp-server/live/test"
+      - "-f"
+      - "flv"
+      - "rtmp://a.rtmp.youtube.com/live2/g59r-dzxm-hsja-vc9t-7v7d"
