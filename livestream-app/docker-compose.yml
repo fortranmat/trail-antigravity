@@ -50,4 +50,5 @@ services:
       - "0:v"
       - "-f"
       - "tee"
-      - "rtmp://rtmp-server/live/test|[f=flv]rtmp://a.rtmp.youtube.com/live2/g59r-dzxm-hsja-vc9t-7v7d"
+      - "[f=flv]rtmp://rtmp-server/live/test|[f=flv:onfail=ignore]rtmp://a.rtmp.youtube.com/live2/g59r-dzxm-hsja-vc9t-7v7d"
+
