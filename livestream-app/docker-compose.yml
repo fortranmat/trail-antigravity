@@ -62,7 +62,8 @@ services:
         -sc_threshold 0
         -threads 0
         -vf "pad=1920:1080:(ow-iw)/2:(oh-ih)/2:black,
-             drawtext=text='ஸ்ரீ சக்கரம் | Sri Chakram':fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=40:fontcolor=gold:shadowcolor=black:shadowx=3:shadowy=3:x=(w-text_w)/2:y=40,
+             drawtext=text='ஸ்ரீ சக்கரம்':fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=44:fontcolor=gold:shadowcolor=black:shadowx=3:shadowy=3:x=(w-text_w)/2:y=30,
+             drawtext=text='Sri Chakram':fontfile=/fonts/NotoSans-Regular.ttf:fontsize=32:fontcolor=gold:shadowcolor=black:shadowx=2:shadowy=2:x=(w-text_w)/2:y=85,
              drawtext=text='ஐம் ஹ்ரீம் ஸ்ரீம் | க்லீம் | ஹ்ரீம் | ஸ்ரீம் | க ஏ ஈ ல ஹ்ரீம் | ஹ்ஸ்ரைம் | ஹ்ரீம் க்லீம் ஐம்':fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=36:fontcolor=gold:shadowcolor=black:shadowx=2:shadowy=2:x=(w-text_w)/2:y=h-120,
              drawtext=text='Aim Hrim Srim | Klim | Hrim | Srim | Ka E I La Hrim | Hsraim | Hrim Klim Aim':fontfile=/fonts/NotoSans-Regular.ttf:fontsize=28:fontcolor=white:shadowcolor=black:shadowx=2:shadowy=2:x=(w-text_w)/2:y=h-65"
         -c:a aac
@@ -71,7 +72,7 @@ services:
         -map 0:v
         -map 1:a
         -f tee
-        "[f=flv]rtmp://rtmp-server/live/test|[f=flv:onfail=ignore]rtmp://a.rtmp.youtube.com/live2/fzcp-swfh-z7zr-w4zm-6p2f"
+        "[f=flv]rtmp://rtmp-server/live/test|[f=flv:onfail=ignore]rtmp://b.rtmp.youtube.com/live2/fzcp-swfh-z7zr-w4zm-6p2f"
 
 
 
