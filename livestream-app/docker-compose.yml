@@ -33,4 +33,4 @@ services:
       -re -loop 1 -framerate $FRAMERATE -i /images/$IMAGE_FILE 
       -c:v libx264 -preset veryfast -b:v $VIDEO_BITRATE -maxrate $VIDEO_BITRATE -bufsize 6000k -pix_fmt yuv420p -g 60 
       -f flv rtmp://rtmp-server/live/$STREAM_NAME
-      -f flv $YOUTUBE_URL/$YOUTUBE_STREAM_KEY
+      -f hls -method POST -hls_time 1 -hls_list_size 3 -hls_segment_type mpegts $YOUTUBE_URL
