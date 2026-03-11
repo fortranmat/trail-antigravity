@@ -33,6 +33,7 @@ services:
     volumes:
       - ./images:/images:ro
       - ./fonts:/fonts:ro
+      - ./videos:/videos:ro
       - ./logs:/logs
     environment:
       - STREAM_KEY=fzcp-swfh-z7zr-w4zm-6p2f
@@ -41,15 +42,12 @@ services:
     mem_limit: 1g
     entrypoint: >
       ffmpeg
-        -re
-        -loop 1
-        -framerate 15
-        -i /images/background.png
+        -stream_loop -1
+        -i "/videos/sri chakra.mp4"
         -f lavfi
         -i anullsrc=r=44100:cl=stereo
         -c:v libx264
         -preset ultrafast
-        -tune stillimage
         -profile:v main
         -b:v 2000k
         -minrate 2000k
@@ -61,7 +59,7 @@ services:
         -keyint_min 30
         -sc_threshold 0
         -threads 0
-        -vf "pad=1920:1080:(ow-iw)/2:(oh-ih)/2:black,
+        -vf "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2:black,
              drawtext=text='ஸ்ரீ சக்கரம்':fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=44:fontcolor=gold:shadowcolor=black:shadowx=3:shadowy=3:x=(w-text_w)/2:y=30,
              drawtext=text='Sri Chakram':fontfile=/fonts/NotoSans-Regular.ttf:fontsize=32:fontcolor=gold:shadowcolor=black:shadowx=2:shadowy=2:x=(w-text_w)/2:y=85,
              drawtext=text='ஐம் ஹ்ரீம் ஸ்ரீம் | க்லீம் | ஹ்ரீம் | ஸ்ரீம் | க ஏ ஈ ல ஹ்ரீம் | ஹ்ஸ்ரைம் | ஹ்ரீம் க்லீம் ஐம்':fontfile=/fonts/NotoSansTamil-Regular.ttf:fontsize=36:fontcolor=gold:shadowcolor=black:shadowx=2:shadowy=2:x=(w-text_w)/2:y=h-120,
