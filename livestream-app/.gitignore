@@ -9,7 +9,6 @@ logs/
 *.log
 
 # Video files (dont push massive video files to git)
-videos/*.mp4
 videos/*.mkv
 
 # EXCEPT the current small sample video
